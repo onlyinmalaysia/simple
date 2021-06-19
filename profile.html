@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+ 
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+        <script>
+            $(document).ready(function () {
+        $.getJSON( "users.json", function( data ) {
+  $.each( data, function( key, val ) {
+      if(val['username']==localStorage.getItem("user"))
+      {
+         $('#username').text(val['username']);
+         $('#email').text(val['email']);
+      }
+  });
+ 
+            });
+        });
+        </script>
+    </head>
+    <body>
+        <div data-role="page" id="pageone">
+  <div data-role="header">
+      <a onclick="window.location.href='home.html'" class="ui-btn-left">Home</a>
+    <span class="ui-title" />
+    <h1>Profile</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+      <h3 id="username"></h3>
+      <h3 id="email"></h3>
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <h1>Contact us</h1>
+  </div>
+</div> 
+
+
+ 
+    </body>
+</html>
